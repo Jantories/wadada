@@ -1,8 +1,7 @@
 'use client'
 
-import { Bell, Power } from 'lucide-react'
+import { Bell, Power, UserRound } from 'lucide-react'
 import Image from 'next/image'
-import { CroppedImage } from './cropped-image'
 
 type Props = { profile: { greeting: string; status: string; name: string; avatar?: string }; onAction: (msg: string) => void; onNotifications: () => void; onLogout: () => void }
 
@@ -13,13 +12,7 @@ export function AppHeader({ profile, onAction, onNotifications, onLogout }: Prop
         {profile.avatar ? (
           <Image src={profile.avatar} alt="รูปโปรไฟล์" fill sizes="40px" className="object-cover object-top" />
         ) : (
-          <CroppedImage
-            src="/images/source-front.png"
-            natural={{ width: 1279, height: 948 }}
-            crop={{ x: 12, y: 18, width: 130, height: 130 }}
-            alt="รูปโปรไฟล์"
-            className="size-full"
-          />
+          <UserRound className="size-6 text-white" aria-label="รูปโปรไฟล์" />
         )}
       </div>
 

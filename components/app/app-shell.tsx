@@ -19,15 +19,13 @@ import { ScanScreen } from './scan-screen'
 import { PinScreen } from './pin-screen'
 import { UnlockLoader } from './unlock-loader'
 import { SplashScreen } from './splash-screen'
-import { cardInfoProfiles, cardProfiles, profiles } from '@/lib/app-content'
+import { card, cardInfo, profile, unlockPin } from '@/lib/app-content'
 
 type Screen = 'notifications' | 'cardInfo' | 'scan' | null
 
-const lastProfileKey = 'last-profile'
 const pinLoaderDurationMs = 650
 
 export function AppShell() {
-  const [authenticatedAs, setAuthenticatedAs] = useState<keyof typeof profiles>('first')
   const [splashVisible, setSplashVisible] = useState(true)
   const [pinOpen, setPinOpen] = useState(false)
   const [pinLoading, setPinLoading] = useState(false)
@@ -48,12 +46,6 @@ export function AppShell() {
   const openLogout = () => setLogoutOpen(true)
   const finishSplash = useCallback(() => setSplashVisible(false), [])
 
-  const pinProfiles = {
-    '11111111': 'first', '22222222': 'second', '33333333': 'third',
-    '44444444': 'fourth', '55555555': 'fifth', '66666666': 'sixth',
-    '77777777': 'seventh', '88888888': 'eighth', '99999999': 'ninth',
-  } as const
-
   useEffect(() => {
     if (!pinLoading) return
     const id = window.setTimeout(() => {
@@ -67,24 +59,16 @@ export function AppShell() {
     if (!pinOpen && !pinLoading) setPinLoading(true)
   }
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem(lastProfileKey)
-    if (saved && saved in profiles) setAuthenticatedAs(saved as keyof typeof profiles)
-  }, [])
-
   const unlock = (pin: string) => {
-    const profileId = pinProfiles[pin as keyof typeof pinProfiles]
-    if (!profileId) return false
-    window.localStorage.setItem(lastProfileKey, profileId)
-    setAuthenticatedAs(profileId)
+    if (pin !== unlockPin) return false
     setCardUnlocked(true)
     setPinOpen(false)
     return true
   }
 
-  const activeProfile = profiles[authenticatedAs]
-  const activeCard = cardProfiles[authenticatedAs]
-  const activeCardInfo = cardInfoProfiles[authenticatedAs]
+  const activeProfile = profile
+  const activeCard = card
+  const activeCardInfo = cardInfo
 
   function renderContent() {
     if (screen === 'notifications') return <NotificationsScreen onBack={() => setScreen(null)} />
