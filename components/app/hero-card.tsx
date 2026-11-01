@@ -42,16 +42,22 @@ function CardFace({
     <div
       className={`absolute inset-0 overflow-hidden rounded-[4.5cqw] [backface-visibility:hidden] ${back ? '[transform:rotateY(180deg)]' : ''} ${blurred ? 'bg-sky-100/40 blur-[5px]' : ''}`}
     >
-      <img
-        src={face.large}
-        srcSet={`${face.small} 640w, ${face.large} 1100w`}
-        sizes={hiRes ? '1100px' : '640px'}
-        alt={label}
-        draggable={false}
-        decoding="async"
-        className={`size-full select-none rounded-[3.3cqw] ${face.cropRotate ? 'object-contain' : 'object-fill'}`}
-        style={face.cropScale || face.cropRotate ? { transform: `rotate(${face.cropRotate ?? 0}deg) scale(${face.cropScale ?? 1})` } : undefined}
-      />
+      {face.large ? (
+        <img
+          src={face.large}
+          srcSet={`${face.small || face.large} 640w, ${face.large} 1100w`}
+          sizes={hiRes ? '1100px' : '640px'}
+          alt={label}
+          draggable={false}
+          decoding="async"
+          className={`size-full select-none rounded-[3.3cqw] ${face.cropRotate ? 'object-contain' : 'object-fill'}`}
+          style={face.cropScale || face.cropRotate ? { transform: `rotate(${face.cropRotate ?? 0}deg) scale(${face.cropScale ?? 1})` } : undefined}
+        />
+      ) : (
+        <div role="img" aria-label={label} className="flex size-full items-center justify-center rounded-[3.3cqw] border-[0.6cqw] border-dashed border-brand/40 bg-white text-[4cqw] font-medium text-brand/60">
+          {label}
+        </div>
+      )}
       {seals && !blurred && <SealRainbow seals={seals} />}
     </div>
   )

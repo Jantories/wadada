@@ -1,29 +1,30 @@
-// Edit any text in the app from this file.
+// Edit any text in the app from this file. All values below are empty placeholders.
 
 export const profile = {
   greeting: 'สวัสดี',
   status: 'ONLINE',
-  name: 'คุณ ไอย์ณพงศ์ ริ้วศรีกุล',
+  name: 'คุณ ชื่อ นามสกุล',
 }
 
-export const profiles = {
-  first: profile,
-  second: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ ภัทรชนน รัตธนภาส', avatar: '/images/card-photo-2.png' },
-  third: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ ธรรมเชษฐ์ เชาว์วิศวชัย', avatar: '/images/card-photo-3.png' },
-  fourth: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ คุณธรรม พิพัฒน์ธรรมคุณ', avatar: '/images/user-4-photo.jpg' },
-  fifth: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ ธนันท์รัฐ วัฒนสินศักดิ์', avatar: '/images/user-5-photo.jpg' },
-  sixth: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ ผู้ใช้งานคนที่หก' },
-  seventh: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ ผู้ใช้งานคนที่เจ็ด' },
-  eighth: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ ผู้ใช้งานคนที่แปด' },
-  ninth: { greeting: 'สวัสดี', status: 'ONLINE', name: 'คุณ ผู้ใช้งานคนที่เก้า' },
-} as const
+// Placeholder unlock PIN (8 digits). Replace it with your own authentication.
+export const unlockPin = '00000000'
+
+export type CardSeal = {
+  /** Circle centre, % of card width / height */
+  x: number
+  y: number
+  /** Circle diameter, % of card width */
+  size: number
+  /** Direction (deg) the rainbow band travels across this circle */
+  angle: number
+}
 
 export const card = {
   titleTh: 'บัตรสมาชิก',
   titleEn: 'Member Card',
   numberLabelTh: 'หมายเลขสมาชิก',
   numberLabelEn: 'Member Number',
-  number: '1 2345 67890 12 3',
+  number: '0 0000 00000 00 0',
   fullNameLabel: 'ชื่อตัวและชื่อสกุล',
   fullNameTh: 'นาย ชื่อ นามสกุล',
   firstNameLabel: 'Name',
@@ -49,151 +50,11 @@ export const card = {
   expandLabel: 'ขยายรูปบัตร',
   collapseLabel: 'ย่อรูปบัตร',
   infoLabel: 'ข้อมูลบัตร',
+  seals: [] as CardSeal[],
+  // Leave empty to show the built-in placeholder card, or set image paths such as '/images/card-front.png'.
+  front: { small: '', large: '' },
+  back: { small: '', large: '' },
 }
-
-// The first PIN (11111111) is the template: every other profile inherits it and overrides only identity fields.
-export type CardSeal = {
-  /** Circle centre, % of card width / height */
-  x: number
-  y: number
-  /** Circle diameter, % of card width */
-  size: number
-  /** Direction (deg) the rainbow band travels across this circle */
-  angle: number
-}
-
-// Seal positions for cards built from a provided full-card image (same template).
-const providedCardSeals: CardSeal[] = [
-  { x: -1.31, y: 21.37, size: 11.93, angle: 180 },
-  { x: 22.55, y: 26.21, size: 15.04, angle: 315 },
-  { x: 44.63, y: 22.12, size: 14.08, angle: 90 },
-  { x: 73.63, y: 18.59, size: 15.04, angle: 225 },
-  { x: 62.89, y: 42.94, size: 15.04, angle: 45 },
-  { x: 42.72, y: 63.75, size: 15.04, angle: 270 },
-  { x: 60.74, y: 84.01, size: 14.1, angle: 135 },
-  { x: 17.66, y: 76.2, size: 11.93, angle: 0 },
-]
-
-const firstCard = {
-  ...card,
-  seals: providedCardSeals,
-  number: '1 3099 03735 85 1',
-  fullNameTh: 'นาย ไอย์ณพงศ์ ริ้วศรีกุล',
-  firstNameEn: 'Mr. Ainapong',
-  lastNameEn: 'Riewsrikul',
-  birthTh: '19 พ.ย. 2548',
-  birthEn: '19 Nov. 2005',
-  address: 'ที่อยู่ 376 ซ.มิตรภาพ 15 ต.ในเมือง อ.เมืองนครราชสีมา จ.นครราชสีมา',
-  issueTh: '19 ธ.ค. 2567',
-  issueEn: '19 Dec. 2024',
-  expiryTh: '18 พ.ย. 2576',
-  expiryEn: '18 Nov. 2033',
-  photoCode: '3001-02-12191346',
-  front: {
-    small: '/images/card-front-1-new.png',
-    large: '/images/card-front-1-new.png',
-  },
-  back: {
-    small: '/images/card-back-1-cropped.png',
-    large: '/images/card-back-1-cropped.png',
-  },
-}
-
-export const cardProfiles = {
-  first: firstCard,
-  second: {
-    ...firstCard,
-    number: '1 1014 02398 10 4',
-    fullNameTh: 'นาย ภัทรชนน รัตธนภาส',
-    firstNameEn: 'Mr. Phatchanon',
-    lastNameEn: 'Ratthanaphas',
-    birthTh: '15 เม.ย. 2549',
-    birthEn: '15 Apr. 2006',
-    address: 'ที่อยู่ 9/139 ซ.พหลโยธิน 9 ถ.พหลโยธิน แขวงพญาไท เขตพญาไท กรุงเทพมหานคร',
-    issueTh: '25 พ.ค. 2567',
-    issueEn: '25 May 2024',
-    expiryTh: '14 เม.ย. 2576',
-    expiryEn: '14 Apr. 2033',
-    photoCode: '1014-02-05251541',
-    seals: providedCardSeals,
-    front: {
-      small: '/images/card-front-2-provided.png',
-      large: '/images/card-front-2-provided.png',
-    },
-    back: { small: '/images/card-back-2-640.png', large: '/images/card-back-2-1100.png' },
-  },
-  third: {
-    ...firstCard,
-    number: '1 1008 01640 48 0',
-    fullNameTh: 'นาย ธรรมเชษฐ์ เชาว์วิศวชัย',
-    firstNameEn: 'Mr. Tamachate',
-    lastNameEn: 'Chaovisawachai',
-    birthTh: '29 ต.ค. 2549',
-    birthEn: '29 Oct. 2006',
-    address: 'ที่อยู่ 217/9 ซ.ประชาอุทิศ 33 แยก 7 แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร',
-    issueTh: '27 ต.ค. 2569',
-    issueEn: '27 Oct. 2026',
-    expiryTh: '28 ต.ค. 2578',
-    expiryEn: '28 Oct. 2035',
-    photoCode: '1007-04-10271552',
-    seals: providedCardSeals,
-    front: {
-      small: '/images/card-front-3-new.png',
-      large: '/images/card-front-3-new.png',
-    },
-    back: { small: '/images/card-back-3.png', large: '/images/card-back-3.png' },
-  },
-  fourth: {
-    ...firstCard,
-    number: '1 1034 00183 78 1',
-    fullNameTh: 'นาย คุณธรรม พิพัฒน์ธรรมคุณ',
-    firstNameEn: 'Mr. Khunnatham',
-    lastNameEn: 'Phiphatthammakhun',
-    birthTh: '26 เม.ย. 2549',
-    birthEn: '29 Apr. 2006',
-    address: 'ที่อยู่ 274 ถ.พหลแสน ต.ในเมือง อ.เมืองนครราชสีมา จ.นครราชสีมา',
-    issueTh: '14 พ.ค. 2569',
-    issueEn: '14 May 2026',
-    expiryTh: '25 เม.ย. 2578',
-    expiryEn: '25 Apr. 2035',
-    photoCode: '1007-02-05141529',
-    front: {
-      small: '/images/card-front-4.png',
-      large: '/images/card-front-4.png',
-    },
-    back: {
-      small: '/images/card-back-4.png',
-      large: '/images/card-back-4.png',
-    },
-  },
-  fifth: {
-    ...firstCard,
-    number: '1 3099 03616 07 0',
-    fullNameTh: 'นาย ธนันท์รัฐ วัฒนสินศักดิ์',
-    firstNameEn: 'Mr. Tananrat',
-    lastNameEn: 'Watthanasinsak',
-    birthTh: '13 ต.ค. 2549',
-    birthEn: '13 Oct. 2006',
-    address: 'ที่อยู่ 65/25 ถ.วิทยุ แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร',
-    issueTh: '28 ต.ค. 2569',
-    issueEn: '28 Oct. 2026',
-    expiryTh: '12 ต.ค. 2578',
-    expiryEn: '12 Oct. 2035',
-    photoCode: '1006-04-10281519',
-    front: {
-      small: '/images/card-front-5.png',
-      large: '/images/card-front-5.png',
-    },
-    back: {
-      small: '/images/card-back-5.png',
-      large: '/images/card-back-5.png',
-    },
-  },
-  sixth: { ...firstCard, number: '6 6666 66666 66 6', fullNameTh: 'นาย ผู้ใช้งาน คนที่หก', firstNameEn: 'Mr. Sixth', lastNameEn: 'User', photoCode: '0000-00-00000006' },
-  seventh: { ...firstCard, number: '7 7777 77777 77 7', fullNameTh: 'นาย ผู้ใช้งาน คนที่เจ็ด', firstNameEn: 'Mr. Seventh', lastNameEn: 'User', photoCode: '0000-00-00000007' },
-  eighth: { ...firstCard, number: '8 8888 88888 88 8', fullNameTh: 'นาย ผู้ใช้งาน คนที่แปด', firstNameEn: 'Mr. Eighth', lastNameEn: 'User', photoCode: '0000-00-00000008' },
-  ninth: { ...firstCard, number: '9 9999 99999 99 9', fullNameTh: 'นาย ผู้ใช้งาน คนที่เก้า', firstNameEn: 'Mr. Ninth', lastNameEn: 'User', photoCode: '0000-00-00000009' },
-} as const
 
 export const sections = {
   services: 'เมนูบริการ',
@@ -271,7 +132,7 @@ export const cardInfo = {
   photoTitle: 'รูปหน้าบัตร',
   photoSub: 'รูปหน้าบัตรประจำตัวประชาชน',
   numberLabel: 'เลขประจำตัวประชาชน',
-  number: '1-2345-67890-12-3',
+  number: '0-0000-00000-00-0',
   nameTh: 'นาย ชื่อ นามสกุล',
   nameEn: 'Mr. Firstname  Lastname',
   addressLabel: 'ที่อยู่',
@@ -283,70 +144,6 @@ export const cardInfo = {
   expiryLabel: 'วันที่หมดอายุ',
   expiry: '1 ม.ค. 2575',
 }
-
-const firstCardInfo = {
-  ...cardInfo,
-  photo: '/images/card-photo.png',
-  number: '1-3099-03735-85-1',
-  nameTh: 'นาย ไอย์ณพงศ์ ริ้วศรีกุล',
-  nameEn: 'Mr. Ainapong  Riewsrikul',
-  address: '376 ซ.มิตรภาพ 15 ต.ในเมือง อ.เมืองนครราชสีมา จ.นครราชสีมา',
-  birth: '19 พ.ย. 2548',
-  issue: '19 ธ.ค. 2567',
-  expiry: '18 พ.ย. 2576',
-}
-
-export const cardInfoProfiles = {
-  first: firstCardInfo,
-  second: {
-    ...firstCardInfo,
-    photo: '/images/card-photo-2.png',
-    number: '1-1014-02398-10-4',
-    nameTh: 'นาย ภัทรชนน รัตธนภาส',
-    nameEn: 'Mr. Phatchanon  Ratthanaphas',
-    address: '9/139 ซ.พหลโยธิน 9 ถ.พหลโยธิน แขวงพญาไท เขตพญาไท กรุงเทพมหานคร',
-    birth: '15 เม.ย. 2549',
-    issue: '25 พ.ค. 2567',
-    expiry: '14 เม.ย. 2576',
-  },
-  third: {
-    ...firstCardInfo,
-    photo: '/images/card-photo-3.png',
-    number: '1-1008-01640-48-0',
-    nameTh: 'นาย ธรรมเชษฐ์ เชาว์วิศวชัย',
-    nameEn: 'Mr. Tamachate  Chaovisawachai',
-    address: '217/9 ซ.ประชาอุทิศ 33 แยก 7 แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร',
-    birth: '29 ต.ค. 2549',
-    issue: '27 ต.ค. 2569',
-    expiry: '28 ต.ค. 2578',
-  },
-  fourth: {
-    ...firstCardInfo,
-    photo: '/images/user-4-photo.jpg',
-    number: '1-1034-00183-78-1',
-    nameTh: 'นาย คุณธรรม พิพัฒน์ธรรมคุณ',
-    nameEn: 'Mr. Khunnatham  Phiphatthammakhun',
-    address: '274 ถ.พหลแสน ต.ในเมือง อ.เมืองนครราชสีมา จ.นครราชสีมา',
-    birth: '26 เม.ย. 2549',
-    issue: '14 พ.ค. 2569',
-    expiry: '25 เม.ย. 2578',
-  },
-  fifth: {
-    ...firstCardInfo,
-    photo: '/images/user-5-photo.jpg',
-    number: '1-3099-03616-07-0',
-    nameTh: 'นาย ธนันท์รัฐ วัฒนสินศักดิ์',
-    nameEn: 'Mr. Tananrat  Watthanasinsak',
-    address: '65/25 ถ.วิทยุ แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร',
-    birth: '13 ต.ค. 2549',
-    issue: '28 ต.ค. 2569',
-    expiry: '12 ต.ค. 2578',
-  },
-  sixth: { ...firstCardInfo, number: '6-6666-66666-66-6', nameTh: 'นาย ผู้ใช้งาน คนที่หก', nameEn: 'Mr. Sixth User' },
-  seventh: { ...firstCardInfo, number: '7-7777-77777-77-7', nameTh: 'นาย ผู้ใช้งาน คนที่เจ็ด', nameEn: 'Mr. Seventh User' },
-  eighth: { ...firstCardInfo, number: '8-8888-88888-88-8', nameTh: 'นาย ผู้ใช้งาน คนที่แปด', nameEn: 'Mr. Eighth User' },
-  ninth: { ...firstCardInfo, number: '9-9999-99999-99-9', nameTh: 'นาย ผู้ใช้งาน คนที่เก้า', nameEn: 'Mr. Ninth User' },
-} as const
 
 export const chat = {
   title: 'แชทบอท',
