@@ -9,7 +9,7 @@ export function AppHeader({ profile, onAction, onNotifications, onLogout }: Prop
   return (
     <header className="flex items-center gap-2.5 px-5">
       {profile.photo ? (
-        <div className="relative size-12 shrink-0 overflow-hidden rounded-full border-2 border-white/70 bg-brand-dark shadow-sm">
+        <div className="relative size-12 shrink-0 overflow-hidden rounded-full border-2 border-white bg-brand-dark shadow-sm">
           <Image src={profile.photo} alt={`รูปโปรไฟล์ของ ${profile.name}`} fill sizes="48px" className="object-cover" priority />
         </div>
       ) : null}
