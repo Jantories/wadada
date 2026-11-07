@@ -1,12 +1,18 @@
 'use client'
 
+import Image from 'next/image'
 import { Bell, Power } from 'lucide-react'
 
-type Props = { profile: { greeting: string; status: string; name: string }; onAction: (msg: string) => void; onNotifications: () => void; onLogout: () => void }
+type Props = { profile: { greeting: string; status: string; name: string; photo?: string }; onAction: (msg: string) => void; onNotifications: () => void; onLogout: () => void }
 
 export function AppHeader({ profile, onAction, onNotifications, onLogout }: Props) {
   return (
     <header className="flex items-center gap-2.5 px-5">
+      {profile.photo ? (
+        <div className="relative size-12 shrink-0 overflow-hidden rounded-full border-2 border-white bg-brand-dark shadow-sm">
+          <Image src={profile.photo} alt={`รูปโปรไฟล์ของ ${profile.name}`} fill sizes="48px" className="object-cover" priority />
+        </div>
+      ) : null}
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
           <span className="text-base text-white/90">{profile.greeting}</span>
