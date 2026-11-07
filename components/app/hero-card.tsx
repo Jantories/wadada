@@ -13,7 +13,7 @@ function SealRainbow({ seals }: { seals: readonly CardSeal[] }) {
       {seals.map((s) => (
         <div
           key={`${s.x}-${s.y}`}
-          className="seal-rainbow absolute overflow-hidden rounded-full mix-blend-hue"
+          className={`seal-rainbow absolute overflow-hidden rounded-full ${s.blend === 'color' ? 'mix-blend-color' : 'mix-blend-hue'}`}
           style={{ left: `${s.x}%`, top: `${s.y}%`, width: `${s.size}cqw`, height: `${s.size}cqw`, transform: 'translate(-50%, -50%)' }}
         >
           <div className="seal-rainbow-band" style={{ '--seal-angle': `${s.angle}deg` } as React.CSSProperties} />
