@@ -53,7 +53,7 @@ export const card = {
   collapseLabel: 'ย่อรูปบัตร',
   infoLabel: 'ข้อมูลบัตร',
   seals: [
-    { x: 10.1, y: 16.1, size: 12.4, angle: 0, blend: 'color' },
+    { x: 9.62, y: 14.46, size: 12.9, angle: 0, blend: 'color' },
     { x: 24.7, y: 28.8, size: 17, angle: 28 },
     { x: 50.5, y: 19, size: 17.4, angle: -18 },
     { x: 80.2, y: 19.3, size: 17.4, angle: 22 },
