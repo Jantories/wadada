@@ -51,11 +51,11 @@ export const card = {
   collapseLabel: 'ย่อรูปบัตร',
   infoLabel: 'ข้อมูลบัตร',
   seals: [
-    { x: 25, y: 36, size: 18, angle: 28 },
-    { x: 48, y: 34, size: 20, angle: -18 },
-    { x: 72, y: 35, size: 19, angle: 22 },
-    { x: 44, y: 68, size: 18, angle: -30 },
-    { x: 68, y: 70, size: 19, angle: 16 },
+    { x: 24.7, y: 28.8, size: 17, angle: 28 },
+    { x: 50.5, y: 19, size: 17.4, angle: -18 },
+    { x: 80.2, y: 19.3, size: 17.4, angle: 22 },
+    { x: 68.6, y: 46.8, size: 17.6, angle: -30 },
+    { x: 45.2, y: 70.6, size: 16.5, angle: 16 },
   ] as CardSeal[],
   front: { small: '/images/card-front-small.webp', large: '/images/card-front-large.webp' },
   back: { small: '/images/card-back-small.webp', large: '/images/card-back-large.webp' },
@@ -154,7 +154,7 @@ export const cardInfo = {
 export const chat = {
   title: 'แชทบอท',
   badge: 'Bot',
-  greeting: 'สวัสดีครับ/ค่ะ ยินดีต้อนรับสู่ระบบให้บริการอัตโนมัติ เราพร้อมให้ความช่วยเหลือและตอบข้อสงสัยของท่าน',
+  greeting: 'สวัสดีครับ/ค่ะ ยินดีต้อนรับสู่ระบบให้บริกา���อัตโนมัติ เราพร้อมให้ความช่วยเหลือและตอบข้อสงสัยของท่าน',
   reply: 'ขอบคุณสำหรับข้อ��วาม เจ้าหน้า���ี่จะติดต่อกลับโดยเร็วที่สุด',
   placeholder: 'พิมพ์ข้อความ...',
 }
