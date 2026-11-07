@@ -17,6 +17,8 @@ export type CardSeal = {
   size: number
   /** Direction (deg) the rainbow band travels across this circle */
   angle: number
+  /** 'color' tints neutral artwork such as the garuda; 'hue' keeps the coloured seal ink's own strength */
+  blend?: 'hue' | 'color'
 }
 
 export const card = {
@@ -51,6 +53,7 @@ export const card = {
   collapseLabel: 'ย่อรูปบัตร',
   infoLabel: 'ข้อมูลบัตร',
   seals: [
+    { x: 10.1, y: 16.1, size: 12.4, angle: 0, blend: 'color' },
     { x: 24.7, y: 28.8, size: 17, angle: 28 },
     { x: 50.5, y: 19, size: 17.4, angle: -18 },
     { x: 80.2, y: 19.3, size: 17.4, angle: 22 },
@@ -154,7 +157,7 @@ export const cardInfo = {
 export const chat = {
   title: 'แชทบอท',
   badge: 'Bot',
-  greeting: 'สวัสดีครับ/ค่ะ ยินดีต้อนรับสู่ระบบให้บริกา���อัตโนมัติ เราพร้อมให้ความช่วยเหลือและตอบข้อสงสัยของท่าน',
+  greeting: 'สวัสดีครับ/ค่ะ ยินดีต้อนรับสู่ระบ��ให้บริกา���อัตโนมัติ เราพร้อมให้ความช่วยเหลือและตอบข้อสงสัยของท่าน',
   reply: 'ขอบคุณสำหรับข้อ��วาม เจ้าหน้า���ี่จะติดต่อกลับโดยเร็วที่สุด',
   placeholder: 'พิมพ์ข้อความ...',
 }
