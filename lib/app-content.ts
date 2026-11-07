@@ -3,11 +3,10 @@
 export const profile = {
   greeting: 'สวัสดี',
   status: 'ONLINE',
-  name: 'คุณ ชื่อ นามสกุล',
+  name: 'คุณ ญาณภัทร ชูบัวทอง',
 }
 
-// Placeholder unlock PIN (8 digits). Replace it with your own authentication.
-export const unlockPin = '00000000'
+export const unlockPin = '32353235'
 
 export type CardSeal = {
   /** Circle centre, % of card width / height */
@@ -20,40 +19,39 @@ export type CardSeal = {
 }
 
 export const card = {
-  titleTh: 'บัตรสมาชิก',
-  titleEn: 'Member Card',
-  numberLabelTh: 'หมายเลขสมาชิก',
-  numberLabelEn: 'Member Number',
-  number: '0 0000 00000 00 0',
+  titleTh: 'บัตรประจำตัวประชาชน',
+  titleEn: 'Thai National ID Card',
+  numberLabelTh: 'เลขประจำตัวประชาชน',
+  numberLabelEn: 'Identification Number',
+  number: '1 9098 03394 93 2',
   fullNameLabel: 'ชื่อตัวและชื่อสกุล',
-  fullNameTh: 'นาย ชื่อ นามสกุล',
+  fullNameTh: 'น.ส. ญาณภัทร ชูบัวทอง',
   firstNameLabel: 'Name',
-  firstNameEn: 'Mr. Firstname',
+  firstNameEn: 'Miss Yanapat',
   lastNameLabel: 'Last Name',
-  lastNameEn: 'Lastname',
+  lastNameEn: 'Choobuathong',
   birthLabelTh: 'เกิดวันที่',
-  birthTh: '1 ม.ค. 2540',
+  birthTh: '30 ธ.ค. 2548',
   birthLabelEn: 'Date of Birth',
-  birthEn: '1 Jan. 1997',
-  address: 'ที่อยู่ 123/45 ถนนตัวอย่าง แขวงตัวอย่าง เขตตัวอย่าง กรุงเทพมหานคร',
-  issueTh: '1 ม.ค. 2567',
+  birthEn: '30 Dec. 2005',
+  address: 'ที่อยู่ 1 ซ.19/3 คลองเตย ต.คอหงส์ อ.หาดใหญ่ จ.สงขลา',
+  issueTh: '28 มี.ค. 2567',
   issueLabelTh: 'วันออกบัตร',
-  issueEn: '1 Jan. 2024',
+  issueEn: '28 Mar. 2024',
   issueLabelEn: 'Date of Issue',
-  expiryTh: '1 ม.ค. 2575',
+  expiryTh: '29 ธ.ค. 2575',
   expiryLabelTh: 'วันบัตรหมดอายุ',
-  expiryEn: '1 Jan. 2032',
+  expiryEn: '29 Dec. 2032',
   expiryLabelEn: 'Date of Expiry',
-  photoCode: '0000-00-00000000',
+  photoCode: '9098-03-03281440',
   backTitle: 'ด้านหลังบัตร',
   backNote: 'แตะที่ข้อความเพื่อแก้ไข หรือกดปุ่มด้านล่างเพื่อพลิกบัตร',
   expandLabel: 'ขยายรูปบัตร',
   collapseLabel: 'ย่อรูปบัตร',
   infoLabel: 'ข้อมูลบัตร',
   seals: [] as CardSeal[],
-  // Leave empty to show the built-in placeholder card, or set image paths such as '/images/card-front.png'.
-  front: { small: '', large: '' },
-  back: { small: '', large: '' },
+  front: { small: '/images/card-front-small.webp', large: '/images/card-front-large.webp' },
+  back: { small: '/images/card-back-small.webp', large: '/images/card-back-large.webp' },
 }
 
 export const sections = {
@@ -131,18 +129,19 @@ export const cardInfo = {
   title: 'ข้อมูลบัตร',
   photoTitle: 'รูปหน้าบัตร',
   photoSub: 'รูปหน้าบัตรประจำตัวประชาชน',
+  photo: '/images/card-photo.jpg',
   numberLabel: 'เลขประจำตัวประชาชน',
-  number: '0-0000-00000-00-0',
-  nameTh: 'นาย ชื่อ นามสกุล',
-  nameEn: 'Mr. Firstname  Lastname',
+  number: '1-9098-03394-93-2',
+  nameTh: 'น.ส. ญาณภัทร ชูบัวทอง',
+  nameEn: 'Miss Yanapat  Choobuathong',
   addressLabel: 'ที่อยู่',
-  address: '123/45 ถนนตัวอย่าง แขวงตัวอย่าง เขตตัวอย่าง กรุงเทพมหานคร',
+  address: '1 ซ.19/3 คลองเตย ต.คอหงส์ อ.หาดใหญ่ จ.สงขลา',
   birthLabel: 'เกิดวันที่',
-  birth: '1 ม.ค. 2540',
+  birth: '30 ธ.ค. 2548',
   issueLabel: 'วันที่ออกบัตร',
-  issue: '1 ม.ค. 2567',
+  issue: '28 มี.ค. 2567',
   expiryLabel: 'วันที่หมดอายุ',
-  expiry: '1 ม.ค. 2575',
+  expiry: '29 ธ.ค. 2575',
 }
 
 export const chat = {
